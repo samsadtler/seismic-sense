@@ -6,6 +6,9 @@
 Same as in the Blink an LED example:
 led1 is D6, led2 is D7 */
 
+
+/*#include "CellLocate.h"*/
+
 int vibe = D2;
 /*int led2 = D1;*/
 
@@ -28,9 +31,11 @@ void setup()
 
    Serial.write('setup');
    Serial.println();
+   /*cellCall();*/
 }
 
-void loop(){ }
+void loop(){
+}
 
 int dataParse(String incomingData) {
     Serial.write("incoming Data: ");
@@ -58,3 +63,19 @@ int dataParse(String incomingData) {
     Serial.write("vibe off");
     Serial.println();
 }
+/*void cellCall(){
+  Serial.write("In cellCall");
+  Serial.println();
+  int tries = 0;
+  CellLocate cl;
+  while (!cl.completed() &&  tries++ < 10) {
+    if (cl.get_response()) {
+      cl.display();
+      cl.googleMaps();
+   } else {
+      Serial.printlnf("Failed to locate position, did not get valid response, try %d", tries);
+       delay(100);
+    }
+  }
+
+}*/
